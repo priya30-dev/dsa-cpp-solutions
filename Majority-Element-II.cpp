@@ -36,7 +36,7 @@
 36                if(nums[i]==ele1){
 37                    count1++;
 38                }
-39                 if(nums[i]==ele2){
+39                 else if(nums[i]==ele2){
 40                    count2++;
 41                }
 42            }
