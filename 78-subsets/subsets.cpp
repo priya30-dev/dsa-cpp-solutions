@@ -1,23 +1,21 @@
 class Solution {
 public:
+void subsequence(vector<int>& nums,int index,int n, vector<vector<int> >&ans,  vector<int>temp){
+if(index==n){
+    ans.push_back(temp);
+    return;
+}
+subsequence(nums,index+1,n,ans,temp);
+temp.push_back(nums[index]);
+subsequence(nums,index+1,n,ans,temp);
+}
+
+
     vector<vector<int>> subsets(vector<int>& nums) {
-        int n = nums.size();
-        int total= 1 << n;
-        vector<vector<int>>ans;
-        for(int target=0; target<total; target++){
-            vector<int>subset;
-            for(int i=0;i<n;i++){
-                if(target&(1<<i)){
-                    subset.push_back(nums[i]);
-                }
-                }
-                ans.push_back(subset);
-
-            }
-            return ans;
-        }
+        vector<vector<int> >ans;
+        vector<int>temp;
+        subsequence(nums,0,nums.size(),ans,temp);
+        return ans;
+    }
 };
-
-
-
-     
+       
